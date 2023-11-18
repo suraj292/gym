@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use App\Models\OnlineInvoice;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,18 +48,17 @@ class checkoutController extends Controller
             'status' => 'success',
             'message' => 'Order created successfully',
             'order' => $order,
-            'number' => encrypt($onlineInvoice->order_number)
+            'number' => encrypt($onlineInvoice->id)
         ]);
     }
 
     public function orders(Request $request)
     {
-        $orders = auth()->user()->order()->latest()->first();
-        $address = Address::find($orders->address_id);
+        $userId = auth()->user()->id;
+        $user = User::with('onlineInvoice', 'onlineInvoice.order')->find($userId);
 
         return view('Pages.Public.Orders.index', [
-            'orders' => $orders,
-            'address' => $address,
+            'user' => $user,
         ]);
     }
 

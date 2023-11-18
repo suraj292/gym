@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('user_id')->default(0);
             $table->string('address_id')->default(0);
             $table->string('order_id')->default(0);
+            $table->string('delivery_status')->default('verifying');
             $table->timestamps();
         });
     }

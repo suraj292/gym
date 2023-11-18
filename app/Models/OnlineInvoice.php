@@ -15,5 +15,11 @@ class OnlineInvoice extends Model
         'user_id',
         'address_id',
         'order_id',
+        'delivery_status'
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

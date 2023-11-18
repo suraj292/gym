@@ -506,7 +506,7 @@
                                             </a>
                                         </li>
                                         <li class="lg:col-span-2">
-                                            <a href="{{ route('public.product') }}">
+                                            <a href="{{ route('public.account.orders') }}">
                                                 <div class="mt-2 text-center">
                                                     Orders
                                                 </div>

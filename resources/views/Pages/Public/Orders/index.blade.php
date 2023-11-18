@@ -66,58 +66,12 @@
                                         <th scope="col">Amount</th>
                                         <th scope="col">Discount</th>
                                         <th scope="col">Total</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     </tbody>
                                 </table>
-                            </div>
-
-                            <div class="row" style="margin-top: 30px">
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="custom-card" style="background-color: #d6d6d652 !important; cursor: default !important;">
-                                        @if($address)
-                                            <p>
-                                                <strong>Name :</strong>{{ $address->name }}
-                                                <br><br>
-
-                                                <strong>Mobile :</strong>{{ $address->mobile }}
-                                                <br><br>
-
-                                                <strong>Address :</strong>{{ $address->address .', '. $address->city .', '. $address->state .', '. $address->pincode }}
-                                                <br><br>
-
-                                                <a class="btn" href="{{ route('public.account.address') }}">Change Address</a>
-                                            </p>
-                                        @else
-                                            <p style="height: 150px; text-align: center">
-                                                <a href="#" class="btn" style="margin-top: 50px">Add Address</a>
-                                            </p>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="custom-card" style="background-color: #d6d6d652 !important; cursor: default !important;">
-                                        <p>
-                                            <strong>Sub Total :</strong> ₹<span id="subTotal"></span>
-                                            <br><br>
-
-                                            <strong>Discounts :</strong> <span id="discount" style="color: green"></span>
-                                            <br><br>
-
-                                            <strong>Shipping Charge :</strong> ₹<span id="shipping">0</span>
-                                            <br><br>
-
-                                            <strong>Total :</strong> ₹<span id="total"></span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                @if($address)
-                                    <div class="col-12 checkout-btn-div">
-                                        <a href="{{ route('public.checkout') }}" class="btn ">Checkout</a>
-                                    </div>
-                                @endif
                             </div>
 
                         </div>
@@ -127,51 +81,35 @@
         </section>
         <script>
             function showCart() {
-                let cart = @json($orders->cart)
-                if (cart.length > 0) {
-                    $('tbody').empty();
-                    let totalAmount = 0;
-                    let totalDiscount = 0;
-                    let subTotal = 0;
-                    cart.forEach((item, index) => {
-                        let discount = item.discount == null ? 0 : (item.discount * item.quantity)
-                        let total = (item.price - discount) * item.quantity
-                        totalAmount += total;
-                        totalDiscount += discount;
-                        subTotal += item.price * item.quantity;
-                        const row = "<tr>" +
-                            "<th scope='row'>" + (index + 1) + "</th>" +
-                            "<td>" + item.name + "</td>" +
-                            "<td>" +
-                            "<div class=\"input-container\"> " +
-                            "<button onclick='qtyDecrease("+ item.id +")'>-</button>" +
-                            "<input type=\"number\" value="+item.quantity+">" +
-                            "<button id=\"increase-btn\" onclick='qtyIncrease("+ item.id +")'>+</button>" +
-                            "</div>" +
-                            "</td>" +
-                            "<td>" + item.price + "</td>" +
-                            "<td>" + discount + "</td>" +
-                            "<td>" + total + "</td>" +
-                            "</tr>";
-                        $('tbody').append(row);
-                    });
-                    //subTotal,discount,shipping,total
-                    $('#subTotal').text(subTotal);
-                    $('#discount').text('₹'+totalDiscount);
-                    $('#total').text(totalAmount);
-                } else {
-                    window.location.href = "{{ route('public.product') }}"
+                var invoice = @json($user->onlineInvoice);
+                if (invoice.length > 0) {
+                    var overallIndex = 0;
+                    for (let i = 0; i < invoice.length; i++) {
+                        var data = invoice[i].order.cart;
+                        var cart = JSON.parse(data);
+
+                        cart.forEach((item, index) => {
+                            overallIndex = overallIndex + 1;
+                            var discount = item.discount == null ? 0 : (item.discount * item.quantity)
+                            var total = (item.price - discount) * item.quantity
+                            const row = "<tr>" +
+                                "<th scope='row'>" + overallIndex + "</th>" +
+                                "<td>" + item.name + "</td>" +
+                                "<td>" + item.quantity + "</td>" +
+                                "<td>" + item.price + "</td>" +
+                                "<td>" + discount + "</td>" +
+                                "<td>" + total + "</td>" +
+                                "<td class='uppercase'>" + invoice[i].delivery_status + "</td>" +
+                                "</tr>";
+                            $('tbody').append(row);
+                        });
+
+                    }
                 }
             }
-            $(document).ready(function () {
-                // showCart()
-                let cart = @json($orders->cart);
 
-                alert('cool');
-                setTimeout(function() {
-                    // console.log(cart)
-                    alert('cool');
-                }, 3000)
+            $(document).ready(function () {
+                showCart();
             })
         </script>
     </div>

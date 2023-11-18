@@ -148,8 +148,7 @@
                     },
                     success: function (response) {
                             localStorage.removeItem('cart');
-                            window.location.href = "{{ route('public.checkout.success') }}?number="+response.onlineInvoice.id;
-                            console.log(response);
+                            window.location.href = "{{ route('public.checkout.success') }}?number="+response.number;
                     },
                     error: function (error) {
                         console.log(error);

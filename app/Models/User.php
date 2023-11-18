@@ -53,4 +53,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function onlineInvoice()
+    {
+        return $this->hasMany(OnlineInvoice::class)->latest();
+    }
+
+
 }
