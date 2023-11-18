@@ -71,6 +71,8 @@ Route::group(['as' => 'public.'], function (){
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout');
     Route::post('/checkout-success', [checkoutController::class, 'checkoutAjax'])->name('checkout.success');
+    Route::get('/checkout-success', [checkoutController::class, 'successPage'])->name('checkout.success.page');
+    Route::post('order-confirmation', [checkoutController::class, 'orderConfirmation'])->name('order.confirmation');
 });
 
 // Admin Routes // Admin Login

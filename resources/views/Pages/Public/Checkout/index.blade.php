@@ -131,7 +131,7 @@
         });
         // Verify Payment
         var checkout = $('#checkout');
-        checkout.click(function () {
+        checkout.on('click', function () {
             let cart = JSON.parse(localStorage.getItem('cart'));
             if (cart.length > 0) {
                 let totalAmount = 0;
@@ -147,8 +147,8 @@
                         'cart' : localStorage.getItem('cart'),
                     },
                     success: function (response) {
-                            {{--localStorage.removeItem('cart');--}}
-                            {{--window.location.href = "{{ route('public.checkout.success') }}";--}}
+                            localStorage.removeItem('cart');
+                            window.location.href = "{{ route('public.checkout.success') }}?number="+response.onlineInvoice.id;
                             console.log(response);
                     },
                     error: function (error) {
