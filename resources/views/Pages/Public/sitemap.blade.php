@@ -1,0 +1,63 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://athletenutrition.in/</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/about</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/contact</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/terms&amp;condition</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/privacy-policy</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/delivery-and-shipping-policy</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/refund-and-cancellation-policy</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/product</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/blog</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/product-detail</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://athletenutrition.in/blog-detail</loc>
+  <lastmod>2023-07-09T06:32:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+</urlset>
