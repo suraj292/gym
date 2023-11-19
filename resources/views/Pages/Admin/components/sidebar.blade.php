@@ -23,6 +23,12 @@
                     <span class="nav-text">Invoice</span>
                 </a>
             </li>
+            <li class="mega-menu mega-menu-lg">
+                <a class="has-arrow" href="{{ route('admin.online.orders') }}" aria-expanded="false">
+                    <i class="mdi mdi-tshirt-crew"></i>
+                    <span class="nav-text">On Orders</span>
+                </a>
+            </li>
             <li class="nav-label">Apps</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="mdi mdi-email-outline"></i> <span class="nav-text">Email</span><span class="badge bg-lgreen text-white nav-badge">০3</span></a>
                 <ul aria-expanded="false">

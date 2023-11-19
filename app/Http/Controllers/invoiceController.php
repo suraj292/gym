@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
 use App\Models\InvoiceTax;
+use App\Models\OnlineInvoice;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -156,5 +157,18 @@ class invoiceController extends Controller
         return $pdf->download('invoice'.'0000'.'.pdf');
     }
 
+    public function onlineOrders(Request $request)
+    {
+        $onlineInvoice = OnlineInvoice::with('order', 'address')->latest()->get();
+
+        return view('Pages.Admin.OnlineOrder.index', compact('onlineInvoice'));
+    }
+
+    public function downloadOnlineInvoice($invoice)
+    {
+//        dd($invoice);
+        return view('Pages.Admin.invoice.online-invoice');
+
+    }
 
 }

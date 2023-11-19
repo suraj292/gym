@@ -9,7 +9,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin.assets/images/favicon.png') }}">
     <link href="{{ asset('main/css/style.css') }}" rel="stylesheet">
-
+    @yield('header')
 </head>
 
 <body>
@@ -637,5 +637,6 @@
 <script src="{{ asset('main/js/dashboard/dashboard-1.js') }}"></script>
 
 <script src="{{ asset('main/js/plugins-init/datamap-usa-init.js') }}"></script>
+@yield('footer')
 </body>
 </html>

@@ -72,7 +72,7 @@ Route::group(['as' => 'public.'], function (){
     Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout');
     Route::post('/checkout-success', [checkoutController::class, 'checkoutAjax'])->name('checkout.success');
     Route::get('/checkout-success', [checkoutController::class, 'successPage'])->name('checkout.success.page');
-    Route::post('order-confirmation', [checkoutController::class, 'orderConfirmation'])->name('order.confirmation');
+    Route::post('order-confirmation', [checkoutController::class, 'orderConfirmation'])->name('order.confirmation'); // not in use
 });
 
 // Admin Routes // Admin Login
@@ -116,8 +116,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'adminAuth'
         })->name('home');
     });
 
+    Route::get('online-orders', [invoiceController::class, 'onlineOrders'])->name('online.orders');
+
 });
 Route::get('download/{invoice}', [invoiceController::class, 'download'])->name('download.invoice');
 Route::get('test', function () {
     return view('Pages.Admin.Invoice.invoice-pdf-2');
 })->name('test');
+Route::get('download-online-invoice/{invoice}', [invoiceController::class, 'downloadOnlineInvoice'])->name('download.online.invoice');

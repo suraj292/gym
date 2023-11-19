@@ -22,4 +22,9 @@ class OnlineInvoice extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
 }

@@ -17,4 +17,9 @@ class Order extends Model
         'status',
         'payment_status',
     ];
+
+    public function address()
+    {
+        
+    }
 }
