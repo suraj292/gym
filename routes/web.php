@@ -118,6 +118,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'adminAuth'
 
     Route::get('online-orders', [invoiceController::class, 'onlineOrders'])->name('online.orders');
 
+    Route::post('update-invoices', [invoiceController::class, 'updateInvoice'])->name('update.invoices');
+
+    Route::get('view-order/{id}', [checkoutController::class, 'viewOrder'])->name('view.order');
+
 });
 Route::get('download/{invoice}', [invoiceController::class, 'download'])->name('download.invoice');
 Route::get('test', function () {

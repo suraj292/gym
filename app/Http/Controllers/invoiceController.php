@@ -6,6 +6,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceProduct;
 use App\Models\InvoiceTax;
 use App\Models\OnlineInvoice;
+use App\Models\Order;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -166,8 +167,40 @@ class invoiceController extends Controller
 
     public function downloadOnlineInvoice($invoice)
     {
-//        dd($invoice);
-        return view('Pages.Admin.invoice.online-invoice');
+        $onlineInvoice = OnlineInvoice::with('order', 'address')->latest()->find($invoice);
+
+        // download pdf
+//        $pdf = Pdf::loadView('Pages.Admin.invoice.online-invoice', [
+//            'invoice' => $onlineInvoice,
+//        ]);
+//        return $pdf->download('invoice'.'0000'.'.pdf');
+
+
+        return view('Pages.Admin.invoice.online-invoice', [
+            'invoice' => $onlineInvoice,
+        ]);
+    }
+
+    public function updateInvoice(Request $request)
+    {
+        $payment_status = $request->payment_status;
+        $delivery_status = $request->delivery_status;
+        $invoice_ids = $request->invoice_ids;;
+
+        $invoice = OnlineInvoice::with('order', 'address')->whereIn('id', explode(',', $invoice_ids))->get();
+
+        foreach ($invoice as $inv){
+            $inv->update([
+                'delivery_status' => $delivery_status,
+            ]);
+            $order = Order::find($inv->order_id);
+            $order->update([
+                'status' => $delivery_status,
+                'payment_status' => $payment_status,
+            ]);
+        }
+
+        return redirect()->route('admin.online.orders')->with('success', 'Invoice Updated Successfully');
 
     }
 

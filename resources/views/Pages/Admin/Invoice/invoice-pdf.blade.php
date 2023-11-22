@@ -212,9 +212,12 @@
             <div class="tr-left" style="padding: 0; width: 33%; float: right;">
                 <table border="1" style="border-collapse: collapse; width: 100%; font-size: 12px;">
                     <tr>
-                        <td>Total Amount</td>
+                        <td>Taxable Value</td>
                         <td>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>{{ $customer_tax['total_amount'] }}</td>
+                        <?php
+                            $tb = ((int)$customer_tax['grand_total']) - ((int)$customer_tax['cgst_a'] + (int)$customer_tax['sgst_a']);
+                        ?>
+                        <td>{{ $tb }}</td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
@@ -230,7 +233,7 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>Grand Total</td>
+                        <td>Total Value</td>
                         <td>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>{{ $customer_tax['grand_total'] }}</td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -240,7 +243,7 @@
         </div>
 
         <!-- terms and condition -->
-        <div style="width: 100%; left: -0px;">
+        <div style="width: 100%; left: -0px; margin-top: 150px;">
             <table border="1" style="border-collapse: collapse; width: 100%;">
                 <tr>
                     <th>Terms & Condition</th>
@@ -254,7 +257,7 @@
             </table>
         </div>
 
-        <div style="width: 100%; left: -0px; margin-top: 200px">
+        <div style="width: 100%; left: -0px; margin-top: 50px">
             <table border="1" style="border-collapse: collapse; width: 100%;">
                 <tr>
                     <td style="padding: 10px">

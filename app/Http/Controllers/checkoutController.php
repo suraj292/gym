@@ -75,6 +75,17 @@ class checkoutController extends Controller
         ]);
     }
 
+    public function viewOrder($id)
+    {
+        $invoice = OnlineInvoice::with('order', 'address')->where('id', $id)->first();
+//        dd(json_decode($invoice->order->cart, true));
+//        dd($invoice);
+        return view('Pages.Admin.OnlineOrder.view-order', [
+            'order' => json_decode($invoice->order->cart, true),
+            'address' => $invoice->address,
+        ]);
+    }
+
     public function orderConfirmation()
     {
 
