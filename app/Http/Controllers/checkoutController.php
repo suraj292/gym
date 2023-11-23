@@ -17,7 +17,7 @@ class checkoutController extends Controller
             return redirect()->route('public.login');
         }
         $address = auth()->user()->address()->defaultAddress()->first();
-        return view('Pages.Public.checkout.index', [
+        return view('Pages.Public.Checkout.index', [
             'address' => $address,
         ]);
     }

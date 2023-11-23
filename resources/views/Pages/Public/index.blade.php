@@ -55,7 +55,7 @@
 {{--                                            <p>Full flavour drinks without any of the downsides.</p>--}}
 {{--                                        </div>--}}
                                         <div class="mt-5">
-                                            <a href="#" class="inline-block push-btn">
+                                            <a href="{{ route('public.product') }}" class="inline-block push-btn">
                                                 <span class="push-btn-surface">Shop now</span>
                                             </a>
                                         </div>

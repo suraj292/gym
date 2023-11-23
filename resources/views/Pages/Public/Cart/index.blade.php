@@ -91,7 +91,7 @@
                                         </p>
                                         @else
                                             <p style="height: 150px; text-align: center">
-                                                <a href="#" class="btn" style="margin-top: 50px">Add Address</a>
+                                                <a href="{{ route('public.account.address.add') }}" class="btn" style="margin-top: 50px">Add Address</a>
                                             </p>
                                         @endif
                                     </div>

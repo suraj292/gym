@@ -1,6 +1,8 @@
 
 @extends('layouts.public.content')
 @section('content')
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <div id="shopify-section-template--16717967065309__product-grid" class="shopify-section">
     <script
         src="//cdn.shopify.com/s/files/1/0640/0213/0141/t/28/assets/vendor-product.bundle.min.js?v=15873297638032180311683310458"
@@ -24,12 +26,11 @@
              data-color-scheme="primary" x-data="ThemeSection_filterable('template--16717967065309__product-grid')">
         <div class="section-content relative z-10 px-section max-w-site mx-auto py-section-vertical-spacing">
             <div class="">
-                <div class="">
-                    <h1 class="text-center font-heading  heading-feature heading-style full_shadow">Seltzers
+                <div class="" style="margin-top: 100px">
+                    <h1 class="text-center font-heading  heading-feature heading-style full_shadow">Products
                     </h1>
                     <div class="mt-5 rte text-rte max-w-xl mx-auto text-center">
-                        Non-alcoholic and easy on the stomach. With our seltzers, you can have as many as you
-                        like without feeling guilty about it.
+                        <p>Our products are made from the finest ingredients and are 100% natural. We have a wide range of products that are suitable for all age groups. </p>
                     </div>
                 </div>
 
@@ -150,7 +151,7 @@
                                 <div>
                                     <div class="mt-2.5 relative z-20 max-w-xs mx-auto">
                                         <div class="relative z-10 text-center  pb-button-shadow">
-                                            <button class="push-btn theme-button " type="submit">
+                                            <button class="push-btn theme-button " type="button" onclick="addToCart({{$product}})">
                                                             <span class="push-btn-surface ">
                                                                 Add to Cart
                                                             </span>
@@ -170,4 +171,18 @@
         </div>
     </section>
 </div>
+<script>
+    function addToCart(product) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let data = cart.find(el => el.id == product.id);
+        if(cart.length > 0 && data){
+            data.quantity++
+        }else{
+            product.quantity = 1;
+            cart.push(product)
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))
+        toastr["success"]("Added to cart successfully")
+    }
+</script>
 @stop

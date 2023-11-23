@@ -57,7 +57,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->input('password')),
             ]);
             // Optionally, you can log the user in after registration
-            auth()->login($user);
+//            auth()->login($user);
             return redirect(route('public.home'))->with('success_message', 'Registration successful!');
         }catch (Throwable $e){
 //            return redirect()->back()->withErrors(['registration' => 'Registration failed!']);

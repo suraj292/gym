@@ -959,11 +959,6 @@
                                     </ul>
                                 </div>
 
-
-
-
-
-
                                 <div class="product-block product-block-horizontal-bar-chart">
                                     <div class="flex items-center justify-start comparison-chart items-center">
                                         <h4 class="w-1/5 shrink-0 text-sm">
@@ -976,11 +971,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
 
                                 <div class="product-block product-block-horizontal-bar-chart">
                                     <div class="flex items-center justify-start comparison-chart items-center">
@@ -995,11 +985,6 @@
                                     </div>
                                 </div>
 
-
-
-
-
-
                                 <div class="product-block product-block-horizontal-bar-chart">
                                     <div class="flex items-center justify-start comparison-chart items-center">
                                         <h4 class="w-1/5 shrink-0 text-sm">
@@ -1013,11 +998,6 @@
                                     </div>
                                 </div>
 
-
-
-
-
-
                                 <div class="product-block product-block-horizontal-bar-chart">
                                     <div class="flex items-center justify-start comparison-chart items-center">
                                         <h4 class="w-1/5 shrink-0 text-sm">
@@ -1030,18 +1010,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                             </div>

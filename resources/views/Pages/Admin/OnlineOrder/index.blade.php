@@ -50,7 +50,7 @@
                                 </div>
                             </div>
 
-                            <table class="table table-bordered" id="order-table">
+                            <table class="table table-responsive table-bordered" id="order-table">
                                 <thead>
                                 <tr>
                                     <th>
