@@ -14,6 +14,5 @@ class CartController extends Controller
         $address = auth()->user()->address()->defaultAddress()->first();
 
         return view('Pages.Public.Cart.index', compact('address'));
-
     }
 }
