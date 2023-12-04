@@ -117,6 +117,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'adminAuth'
     });
 
     Route::get('online-orders', [invoiceController::class, 'onlineOrders'])->name('online.orders');
+    Route::get('online-order/{id}/delete', [invoiceController::class, 'deleteOnlineOrder'])->name('online.order.delete');
 
     Route::post('update-invoices', [invoiceController::class, 'updateInvoice'])->name('update.invoices');
 

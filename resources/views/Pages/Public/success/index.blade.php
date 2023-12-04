@@ -9,11 +9,21 @@
                 <div class="text-scheme-text card-container">
                     <div class="card p-5 lg:p-10">
 
-                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow" style="font-size: 60px !important;">order placed</h1>
+                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow hd" >order placed</h1>
 
                         <div class="mx-auto mt-5">
 
                             <style>
+                                @media only screen and (max-width: 480px) {
+                                    .hd{
+                                        font-size: 40px !important;
+                                    }
+                                }
+                                @media only screen and (min-width: 481px) {
+                                    .hd {
+                                        font-size: 60px !important;
+                                    }
+                                }
                                 .table {
                                     width: 100%;
                                 }
@@ -57,7 +67,7 @@
 
                             </style>
 
-                            <div class="row" style="margin-top: 30px">
+                            <div class="row" style="margin-top: 30px; text-align: center;">
                                 <i class="fa-regular fa-circle-check"></i>
                             </div>
 

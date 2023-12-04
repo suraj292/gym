@@ -513,6 +513,13 @@
                                             </a>
                                         </li>
                                         <li class="lg:col-span-2">
+                                            <a href="{{ route('public.cart') }}">
+                                                <div class="mt-2 text-center">
+                                                    Cart
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="lg:col-span-2">
                                             <a href="{{ route('public.logout') }}">
                                                 <div class="mt-2 text-center">
                                                     Logout

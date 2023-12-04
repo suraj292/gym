@@ -160,7 +160,7 @@ class invoiceController extends Controller
 
     public function onlineOrders(Request $request)
     {
-        $onlineInvoice = OnlineInvoice::with('order', 'address')->latest()->get();
+        $onlineInvoice = OnlineInvoice::with('user', 'order', 'address')->latest()->get();
 
         return view('Pages.Admin.OnlineOrder.index', compact('onlineInvoice'));
     }
@@ -202,6 +202,13 @@ class invoiceController extends Controller
 
         return redirect()->route('admin.online.orders')->with('success', 'Invoice Updated Successfully');
 
+    }
+
+    public function deleteOnlineOrder($id)
+    {
+        $order = OnlineInvoice::find($id);
+        $order->delete();
+        return redirect()->route('admin.online.orders')->with('success', 'Invoice Deleted Successfully');
     }
 
 }

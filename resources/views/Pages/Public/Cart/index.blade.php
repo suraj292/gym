@@ -9,13 +9,29 @@
                 <div class="text-scheme-text card-container">
                     <div class="card p-5 lg:p-10">
 
-                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow" style="font-size: 60px !important;">Orders</h1>
+                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow hd">Orders</h1>
 
                         <div class="mx-auto mt-5">
 
                             <style>
+                                /* write media query minimum screen and maximum screen size */
+                                @media only screen and (max-width: 480px) {
+                                    .hd{
+                                        font-size: 40px !important;
+                                    }
+                                }
+                                @media only screen and (min-width: 481px) {
+                                    .hd {
+                                        font-size: 60px !important;
+                                    }
+                                }
+                                .table-responsive {
+                                    overflow-x: auto;
+                                }
                                 .table {
                                     width: 100%;
+                                    margin-bottom: 1rem;
+                                    color: #212529;
                                 }
                                 tbody td {
                                     text-align: center;
@@ -56,7 +72,7 @@
                                 }
 
                             </style>
-                            <div>
+                            <div class="table-responsive">
                                 <table class="table">
                                     <thead class="thead-dark">
                                     <tr>

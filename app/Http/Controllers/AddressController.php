@@ -55,17 +55,17 @@ class AddressController extends Controller
     public function seDefault($id)
     {
         $add = Address::where('user_id', auth()->id())->first();
-        if (!$add) {
+        if ($add) {
             $check = Address::where('user_id', auth()->id())->get();
             foreach ($check as $item) {
                 $item->is_default = 0;
                 $item->save();
             }
-
             $address = Address::find(decrypt($id));
             $address->is_default = 1;
             $address->save();
         }
+
         return redirect(route('public.account.address'));
     }
 

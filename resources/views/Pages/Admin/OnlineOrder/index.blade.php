@@ -59,7 +59,8 @@
                                     <th> Order No </th>
                                     <th> Payment </th>
                                     <th> Status </th>
-                                    <th> Amount </th>
+                                    <th> Date </th>
+                                    <th> Mobile </th>
                                     <th> Action </th>
                                     <th> Invoice </th>
                                 </tr>
@@ -70,7 +71,7 @@
                                         <td>
                                             <input type="checkbox" value="{{ $invoice->id }}" class="checkboxes">
                                         </td>
-                                        <td>
+                                        <td title="View Order">
                                             <a href="{{ route('admin.view.order', $invoice->id) }}">
                                                 ANON-{{ sprintf("%06d", $invoice->order_number) }}
                                             </a>
@@ -78,9 +79,10 @@
                                         <td>{{ $invoice->order->payment_status }}</td>
                                         <td>{{ $invoice->order->status }}</td>
                                         <td> {{ $invoice->created_at->format('jS M Y') }} </td>
+                                        <td> {{ $invoice->address->mobile ?? $invoice->user->phone }} </td>
                                         <td class="text-center">
-                                            <a href="#" class="btn btn-primary" title="Edit">Edit</a>
-                                            <a href="#" class="btn btn-danger" title="Delete">Delete</a>
+{{--                                            <a href="#" class="btn btn-primary" title="Edit">Edit</a>--}}
+                                            <a href="{{ route('admin.online.order.delete', $invoice->id) }}" class="btn-sm btn-danger" title="Delete">Delete</a>
                                         </td>
                                         <td>
                                             <a href="{{ route('download.online.invoice', $invoice->id) }}" class="btn btn-success">

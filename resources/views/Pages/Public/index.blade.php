@@ -55,9 +55,16 @@
 {{--                                            <p>Full flavour drinks without any of the downsides.</p>--}}
 {{--                                        </div>--}}
                                         <div class="mt-5">
-                                            <a href="{{ route('public.product') }}" class="inline-block push-btn">
-                                                <span class="push-btn-surface">Shop now</span>
-                                            </a>
+                                            @if(session()->has('user'))
+                                                <a href="{{ route('public.product.detail', encrypt(1)) }}" class="inline-block push-btn">
+                                                    <span class="push-btn-surface">Shop now</span>
+                                                </a>
+                                            @else
+                                                <a href="{{ route('public.login') }}" class="inline-block push-btn">
+                                                    <span class="push-btn-surface">Shop now</span>
+                                                </a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

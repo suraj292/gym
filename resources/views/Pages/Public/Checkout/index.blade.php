@@ -9,11 +9,21 @@
                 <div class="text-scheme-text card-container">
                     <div class="card p-5 lg:p-10">
 
-                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow" style="font-size: 60px !important;">Checkout</h1>
+                        <h1 class="text-center font-heading  heading-feature heading-style full_shadow hd" >Checkout</h1>
 
                         <div class="mx-auto mt-5">
 
                             <style>
+                                @media only screen and (max-width: 480px) {
+                                    .hd{
+                                        font-size: 35px !important;
+                                    }
+                                }
+                                @media only screen and (min-width: 481px) {
+                                    .hd {
+                                        font-size: 60px !important;
+                                    }
+                                }
                                 .table {
                                     width: 100%;
                                 }
@@ -63,13 +73,13 @@
                                         <h1 class="" style="text-align: center">BANK DETAILS</h1>
                                         <br>
                                         <p>
-                                            <strong>BANK NAME</strong> : HDFC BANK RAJENDRA NAGAR
+                                            <strong>BANK NAME</strong> : HDFC BANK
                                             <br><br>
                                             <strong>Account Name</strong> : ATHLETE NUTRITION
                                             <br><br>
-                                            <strong>Account Number</strong> : 1234567890
+                                            <strong>Account Number</strong> : 5020 0080 9895 60
                                             <br><br>
-                                            <strong>IFSC Code</strong> : HDFC0000000
+                                            <strong>IFSC Code</strong> : HDFC0001266
                                         </p>
                                     </div>
                                 </div>
@@ -82,7 +92,11 @@
                             </div>
 
                             <div style="width: 100%; text-align: center; padding-top: 20px">
-                                <a id="checkout" class="btn">Verify Payment</a>
+{{--                                <a id="checkout" class="btn">Verify Payment</a>--}}
+                                <a href="https://wa.me/919910748329" class="btn" id="checkout">
+                                    <i class="fab fa-whatsapp" style="font-size: 25px;"></i>
+                                    Share Screenshot
+                                </a>
                             </div>
 
                         </div>
@@ -93,6 +107,7 @@
     </div>
 @stop
 @section('head')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         #qrcode img{
             padding-top: 20px;
@@ -148,7 +163,8 @@
                     },
                     success: function (response) {
                             localStorage.removeItem('cart');
-                            window.location.href = "{{ route('public.checkout.success') }}?number="+response.number;
+                            //window.location.href = "{{ route('public.checkout.success') }}?number="+response.number;
+
                     },
                     error: function (error) {
                         console.log(error);

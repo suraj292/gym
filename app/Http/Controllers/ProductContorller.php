@@ -90,7 +90,7 @@ class ProductContorller extends Controller
         try {
             $data = $request->validate([
                 'name' => 'required|string|max:255|'.Rule::unique('products', 'name')->ignore(decrypt($id)),
-                'description' => 'required|string|max:255',
+                'description' => 'required|string',
                 'price' => 'required|numeric',
                 'discount' => 'nullable|numeric',
                 'stock' => 'required|numeric',
